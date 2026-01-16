@@ -780,6 +780,14 @@
         /* ===== ABOUT SECTION ===== */
         .about-section {
             background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .about-section .container {
+            position: relative;
+            z-index: 1;
         }
 
         .about-content {
@@ -1059,14 +1067,6 @@
             overflow: hidden;
         }
 
-        #particles-skills {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
 
         .skills-section .container {
             position: relative;
@@ -1338,14 +1338,6 @@
             overflow: hidden;
         }
 
-        #particles-experience {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
 
         .experience-section .container {
             position: relative;
@@ -2416,7 +2408,6 @@
 
     <!-- Skills Section -->
     <section class="skills-section" id="skills">
-        <div id="particles-skills"></div>
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">My Expertise</span>
@@ -2792,7 +2783,6 @@
 
     <!-- Experience Section -->
     <section class="experience-section" id="experience">
-        <div id="particles-experience"></div>
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Career Journey</span>
@@ -4133,96 +4123,14 @@
                 behavior: 'smooth'
             });
         });
+    </script>
 
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
         // ===== PARTICLES.JS CONFIGURATION =====
-        function initParticles(elementId) {
-            if (typeof particlesJS !== 'undefined') {
-                particlesJS(elementId, {
-                    particles: {
-                        number: {
-                            value: 80,
-                            density: {
-                                enable: true,
-                                value_area: 800
-                            }
-                        },
-                        color: {
-                            value: '#61dafb'
-                        },
-                        shape: {
-                            type: 'circle'
-                        },
-                        opacity: {
-                            value: 0.3,
-                            random: true,
-                            anim: {
-                                enable: true,
-                                speed: 1,
-                                opacity_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        size: {
-                            value: 3,
-                            random: true,
-                            anim: {
-                                enable: true,
-                                speed: 2,
-                                size_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        line_linked: {
-                            enable: true,
-                            distance: 150,
-                            color: '#61dafb',
-                            opacity: 0.2,
-                            width: 1
-                        },
-                        move: {
-                            enable: true,
-                            speed: 2,
-                            direction: 'none',
-                            random: false,
-                            straight: false,
-                            out_mode: 'out',
-                            bounce: false
-                        }
-                    },
-                    interactivity: {
-                        detect_on: 'canvas',
-                        events: {
-                            onhover: {
-                                enable: true,
-                                mode: 'grab'
-                            },
-                            onclick: {
-                                enable: true,
-                                mode: 'push'
-                            },
-                            resize: true
-                        },
-                        modes: {
-                            grab: {
-                                distance: 140,
-                                line_linked: {
-                                    opacity: 0.5
-                                }
-                            },
-                            push: {
-                                particles_nb: 4
-                            }
-                        }
-                    },
-                    retina_detect: true
-                });
-            }
-        }
-
-        // Initialize particles for different sections
-        initParticles('particles-home');
-        initParticles('particles-skills');
-        initParticles('particles-experience');
+        // Particles are initialized directly below with light settings
 
         // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -4369,7 +4277,114 @@
         });
 
     </script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Particles.js Configuration -->
+    <script>
+        /* Home Section Particles - Light Configuration */
+        particlesJS("particles-home", {
+            "particles": {
+                "number": {
+                    "value": 40,
+                    "density": {
+                        "enable": true,
+                        "value_area": 1200
+                    }
+                },
+                "color": {
+                    "value": "#61dafb"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.2,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 0.3,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 2,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "size_min": 0.5,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 200,
+                    "color": "#61dafb",
+                    "opacity": 0.15,
+                    "width": 0.8
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": false,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 180,
+                        "line_linked": {
+                            "opacity": 0.3
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 2
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+    </script>
 </body>
 
 </html>
