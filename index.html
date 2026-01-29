@@ -566,6 +566,29 @@
             color: var(--bg-primary);
         }
 
+        .btn-download-cv {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-download-cv::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(97, 218, 251, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-download-cv:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
         .btn-block {
             width: 100%;
             justify-content: center;
@@ -1558,84 +1581,143 @@
         /* ===== TESTIMONIALS SECTION ===== */
         .testimonials-section {
             background: var(--bg-secondary);
+            padding: 6rem 0;
         }
 
         .testimonials-slider {
             position: relative;
-            overflow: hidden;
             margin-bottom: 2rem;
+            padding: 1rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
         }
 
         .testimonial-track {
             display: flex;
-            gap: 2rem;
+            gap: 0;
             transition: transform 0.5s ease;
+            align-items: stretch;
         }
 
         .testimonial-card {
             min-width: 100%;
+            max-width: 100%;
+            width: 100%;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
-            padding: 3rem;
+            padding: 2.5rem;
             position: relative;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
         }
 
         .quote-icon {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 3rem;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 4rem;
             color: var(--primary);
-            opacity: 0.2;
+            opacity: 0.15;
+            line-height: 1;
+            z-index: 0;
         }
 
         .testimonial-content {
             margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.75;
             color: var(--text-secondary);
             font-style: italic;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            margin: 0;
+            padding-right: 3.5rem;
+            hyphens: auto;
+            text-align: left;
+            overflow: visible;
+            white-space: normal;
         }
 
         .testimonial-author {
             display: flex;
-            align-items: center;
-            gap: 1.5rem;
+            align-items: flex-start;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .author-avatar {
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             background: var(--gradient-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: white;
             text-transform: uppercase;
             flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .author-info {
+            flex: 1;
+            min-width: 0;
         }
 
         .author-name {
-            font-size: 1.2rem;
-            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
             color: var(--text-primary);
+            font-weight: 600;
         }
 
         .author-title {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .author-title i {
+            margin: 0 0.5rem;
+            opacity: 0.6;
         }
 
         .rating {
             color: var(--warning);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 0.2rem;
+        }
+
+        .rating i {
+            font-size: 0.9rem;
         }
 
         .slider-controls {
@@ -1681,6 +1763,322 @@
             background: var(--primary);
             width: 30px;
             border-radius: var(--radius-full);
+        }
+
+        /* ===== EDUCATION SECTION ===== */
+        .education-section {
+            background: var(--bg-primary);
+            padding: 6rem 0;
+        }
+
+        .education-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            position: relative;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(10px);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .education-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-degree {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-university {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .education-year {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== STATISTICS SECTION ===== */
+        .statistics-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .statistics-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(97, 218, 251, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all var(--transition-base);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ===== CERTIFICATIONS SECTION ===== */
+        .certifications-section {
+            background: var(--bg-secondary);
+            padding: 6rem 0;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certification-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: all var(--transition-base);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-accent);
+            border-radius: 0 0 0 100%;
+            opacity: 0.1;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .certification-badge {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-accent);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .certification-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-issuer {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .certification-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== CALL TO ACTION SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(97, 218, 251, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-primary {
+            padding: 1.2rem 3rem;
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(97, 218, 251, 0.4);
+        }
+
+        .btn-cta-secondary {
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-cta-secondary:hover {
+            background: var(--primary);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
         }
 
         /* ===== CONTACT SECTION ===== */
@@ -2031,6 +2429,44 @@
             .timeline-dot {
                 left: 6px;
             }
+
+            .education-section,
+            .statistics-section,
+            .certifications-section,
+            .cta-section {
+                padding: 4rem 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 2.2rem;
+            }
+
+            .cta-description {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2060,6 +2496,194 @@
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 1rem;
+            }
+
+            .testimonials-section {
+                padding: 4rem 0;
+            }
+
+            .testimonials-slider {
+                max-width: 100%;
+                padding: 0.5rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 1rem;
+                line-height: 1.7;
+                padding-right: 2.5rem;
+            }
+
+            .quote-icon {
+                font-size: 3rem;
+                top: 1.25rem;
+                right: 1.25rem;
+            }
+
+            .testimonial-author {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 1rem;
+                padding-top: 1.25rem;
+            }
+
+            .author-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+
+            .author-name {
+                font-size: 1rem;
+            }
+
+            .author-title {
+                font-size: 0.8rem;
+            }
+
+            .rating {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 3rem 0;
+            }
+
+            .testimonials-slider {
+                max-width: 100%;
+                padding: 0.5rem;
+            }
+
+            .testimonial-card {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+                line-height: 1.65;
+                padding-right: 2rem;
+            }
+
+            .quote-icon {
+                font-size: 2.5rem;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .testimonial-author {
+                gap: 0.875rem;
+            }
+
+            .author-avatar {
+                width: 48px;
+                height: 48px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonial-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.9rem;
+            }
+
+            .quote-icon {
+                font-size: 2rem;
+            }
+
+            .author-avatar {
+                width: 44px;
+                height: 44px;
+            }
+
+            .author-name {
+                font-size: 0.95rem;
+            }
+
+            .author-title {
+                font-size: 0.75rem;
+            }
+
+            .education-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .education-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .education-degree {
+                font-size: 1.3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 2.2rem;
+            }
+
+            .cta-description {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .education-section,
+            .statistics-section,
+            .certifications-section,
+            .cta-section {
+                padding: 4rem 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-description {
+                font-size: 1rem;
             }
         }
     </style>
@@ -2091,6 +2715,9 @@
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#statistics">Statistics</a>
+            <a href="#certifications">Certifications</a>
             <a href="#recommendations">Testimonials</a>
             <a href="#contact">Contact</a>
         </div>
@@ -2129,7 +2756,7 @@
                     <span class="cursor">|</span>
                 </div>
                 <p class="hero-description">
-                    Crafting scalable enterprise solutions with <strong>6+ years</strong> of expertise in backend
+                    Crafting scalable enterprise solutions with <strong>over 5 years</strong> of expertise in backend
                     development,
                     specializing in Laravel & PHP ecosystems.
                 </p>
@@ -2137,7 +2764,7 @@
                 <!-- Quick Stats -->
                 <div class="hero-stats">
                     <div class="stat-box">
-                        <div class="stat-number" data-target="6">0</div>
+                        <div class="stat-number" data-target="5">0</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
                     <div class="stat-box">
@@ -2160,7 +2787,7 @@
                         <i class="fas fa-briefcase"></i>
                         View Projects
                     </a>
-                    <a href="https://www.linkedin.com/in/ahmed-fayed2018/" target="_blank" class="btn btn-outline">
+                    <a href="https://www.linkedin.com/in/ahmed-fayed2018/" target="_blank" class="btn btn-outline btn-download-cv">
                         <i class="fas fa-download"></i>
                         Download CV
                     </a>
@@ -2206,13 +2833,13 @@
             <div class="about-content">
                 <div class="about-text">
                     <p class="lead">
-                        Senior Backend Developer with deep expertise in architecting and delivering
-                        <strong>enterprise-grade, scalable web solutions</strong>.
+                        Senior Backend Developer with over 5 years of experience in building scalable, secure, and
+                        high‑performance backend systems using PHP and Laravel.
                     </p>
                     <p>
-                        Specialized in the Laravel and PHP ecosystems, with a strong track record in designing
-                        robust system architectures, optimizing database performance, and building secure,
-                        high-performance APIs to meet complex business requirements.
+                        Strong expertise in RESTful APIs, database optimization, and system architecture, with hands‑on
+                        experience in CRM, ERP, messaging, and financial systems. Passionate about clean architecture,
+                        performance, and long‑term maintainability, and experienced in Agile/Scrum environments.
                     </p>
 
                     <div class="what-i-do">
@@ -2252,7 +2879,7 @@
                     <div class="contact-info-quick">
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Mansoura, Egypt</span>
+                            <span>Cairo, Egypt</span>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-envelope"></i>
@@ -2634,10 +3261,10 @@
                     </div>
                     <div class="project-content">
                         <div class="project-category">Enterprise CRM</div>
-                        <h3 class="project-title">Engaz CRM Platform</h3>
+                        <h3 class="project-title">Real Estate CRM Platform</h3>
                         <p class="project-description">
-                            Comprehensive CRM solution for real estate organizations with advanced lead management,
-                            SMS gateway integration, and automated workflow systems.
+                            Multi‑tenant CRM platform serving real estate companies with advanced lead management,
+                            automated workflow systems, and comprehensive business intelligence.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Laravel</span>
@@ -2698,7 +3325,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Enterprise API -->
+                <!-- Project 3: Standalone SMS Service -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-overlay">
@@ -2709,36 +3336,36 @@
                             </div>
                         </div>
                         <div class="project-placeholder">
-                            <i class="fas fa-network-wired"></i>
+                            <i class="fas fa-sms"></i>
                         </div>
                     </div>
                     <div class="project-content">
-                        <div class="project-category">API Development</div>
-                        <h3 class="project-title">Multi-Service API Gateway</h3>
+                        <div class="project-category">Messaging Service</div>
+                        <h3 class="project-title">Standalone SMS Service</h3>
                         <p class="project-description">
-                            Scalable API gateway handling multiple microservices with authentication,
-                            rate limiting, and comprehensive documentation.
+                            Subscription‑based messaging platform for external clients. Handles large‑scale messaging
+                            with advanced delivery tracking and analytics.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">GraphQL</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Swagger</span>
+                            <span class="tech-tag">SMS Gateway</span>
+                            <span class="tech-tag">Subscription</span>
+                            <span class="tech-tag">REST API</span>
                         </div>
                         <div class="project-stats">
                             <div class="stat">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>99.9% Uptime</span>
+                                <i class="fas fa-users"></i>
+                                <span>External Clients</span>
                             </div>
                             <div class="stat">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Secure</span>
+                                <i class="fas fa-chart-line"></i>
+                                <span>Large Scale</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 4: E-Commerce Platform -->
+                <!-- Project 4: Box Financial System -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-overlay">
@@ -2749,30 +3376,30 @@
                             </div>
                         </div>
                         <div class="project-placeholder">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-calculator"></i>
                         </div>
                     </div>
                     <div class="project-content">
-                        <div class="project-category">E-Commerce</div>
-                        <h3 class="project-title">Full-Stack E-Commerce Solution</h3>
+                        <div class="project-category">Financial System</div>
+                        <h3 class="project-title">Box Financial System</h3>
                         <p class="project-description">
-                            Complete e-commerce platform with inventory management, multi-vendor support,
-                            and integrated payment processing.
+                            Internal accounting system for expenses and revenue management. Comprehensive financial
+                            tracking and reporting system.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">AWS S3</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Accounting</span>
+                            <span class="tech-tag">Reporting</span>
                         </div>
                         <div class="project-stats">
                             <div class="stat">
-                                <i class="fas fa-store"></i>
-                                <span>Multi-Vendor</span>
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>Expenses & Revenue</span>
                             </div>
                             <div class="stat">
-                                <i class="fas fa-credit-card"></i>
-                                <span>Payment Ready</span>
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Financial Reports</span>
                             </div>
                         </div>
                     </div>
@@ -2795,7 +3422,7 @@
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <div class="stat-content">
-                        <div class="stat-number counter" data-target="6">0</div>
+                        <div class="stat-number counter" data-target="5">0</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
                 </div>
@@ -2824,7 +3451,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Dec 2022 - Present · 2+ yrs</div>
+                        <div class="timeline-date">Dec 2021 - Present · 3+ yrs</div>
                         <div class="company-header">
                             <div class="company-logo">EA</div>
                             <div>
@@ -2832,24 +3459,22 @@
                                 <div class="job-title">Senior Backend Developer</div>
                                 <div class="job-meta">
                                     <span><i class="fas fa-briefcase"></i> Full-time</span>
-                                    <span><i class="fas fa-calendar"></i> Dec 2022 - Present · 2+ yrs</span>
+                                    <span><i class="fas fa-calendar"></i> Dec 2021 - Present · 3+ yrs</span>
                                     <span><i class="fas fa-map-marker-alt"></i> Cairo, Egypt · Hybrid</span>
                                 </div>
                             </div>
                         </div>
                         <p class="job-description">
-                            As a Senior Backend Developer at Engaz, I spearheaded the development of enterprise-grade
-                            messaging infrastructure and a comprehensive CRM platform specifically engineered for real
-                            estate organizations.
+                            Built and maintained a scalable multi‑tenant CRM platform for real estate companies.
+                            Designed and integrated RESTful APIs for internal modules and external services.
                         </p>
                         <ul class="achievements">
-                            <li>Architected and maintained scalable backend systems leveraging Laravel framework</li>
-                            <li>Designed and implemented RESTful API integrations to facilitate seamless system
-                                communication</li>
-                            <li>Developed and optimized relational database schemas for enhanced performance</li>
-                            <li>Engineered advanced search algorithms and filtering mechanisms</li>
-                            <li>Ensured regulatory compliance with data protection standards and security protocols</li>
-                            <li>Collaborated with cross-functional teams to deliver integrated solutions</li>
+                            <li>Developed a standalone subscription‑based SMS service for large‑scale messaging</li>
+                            <li>Contributed to "Box", an internal financial & accounting system for expenses and revenues</li>
+                            <li>Developed a dedicated internal payment service handling transactions across platforms</li>
+                            <li>Designed and optimized high‑volume transactional database schemas</li>
+                            <li>Participated in sprint planning, task estimation, and workflow management</li>
+                            <li>Collaborated with frontend, QA, and product teams to ensure high‑quality delivery</li>
                         </ul>
                         <div class="tech-stack">
                             <span>Laravel</span>
@@ -2866,33 +3491,26 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Dec 2023 - Present · 1+ yr</div>
+                        <div class="timeline-date">Dec 2024 - Present · 1+ mo</div>
                         <div class="company-header">
                             <div class="company-logo">AJ</div>
                             <div>
                                 <h3 class="company-name">Aljanahain</h3>
-                                <div class="job-title">Senior Backend Developer</div>
+                                <div class="job-title">Backend Developer</div>
                                 <div class="job-meta">
-                                    <span><i class="fas fa-briefcase"></i> Part-time</span>
-                                    <span><i class="fas fa-calendar"></i> Dec 2023 - Present · 1+ yr</span>
+                                    <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                    <span><i class="fas fa-calendar"></i> Dec 2024 - Present · 1+ mo</span>
                                     <span><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia · Remote</span>
                                 </div>
                             </div>
                         </div>
                         <p class="job-description">
-                            As a Senior Backend Developer specializing in Laravel at Aljanahain Company, I focus on
-                            architecting and maintaining enterprise-grade, scalable, and secure backend infrastructure.
+                            Developed and optimized backend services using Laravel. Designed efficient database schemas
+                            and improved query performance.
                         </p>
                         <ul class="achievements">
-                            <li>Designing and optimizing RESTful API architectures for seamless frontend integration
-                            </li>
-                            <li>Developing efficient database schemas to support complex business logic and operations
-                            </li>
-                            <li>Implementing clean code principles, maintainable architecture, and comprehensive
-                                documentation</li>
-                            <li>Integrating third-party services, payment processing systems, and external APIs</li>
-                            <li>Implementing enterprise-level authentication, authorization, and security protocols</li>
-                            <li>Conducting performance analysis, optimization, and continuous system improvement</li>
+                            <li>Implemented secure authentication and authorization mechanisms</li>
+                            <li>Integrated third‑party services and external APIs</li>
                         </ul>
                         <div class="tech-stack">
                             <span>Laravel</span>
@@ -2914,29 +3532,21 @@
                             <div class="company-logo">TL</div>
                             <div>
                                 <h3 class="company-name">TopLine</h3>
-                                <div class="job-title">Full Stack Developer</div>
+                                <div class="job-title">Backend / Full Stack Developer</div>
                                 <div class="job-meta">
-                                    <span><i class="fas fa-briefcase"></i> Part-time</span>
+                                    <span><i class="fas fa-briefcase"></i> Full-time</span>
                                     <span><i class="fas fa-calendar"></i> 2022 - Jul 2024 · 2 yrs 7 mos</span>
                                     <span><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia · Remote</span>
                                 </div>
                             </div>
                         </div>
                         <p class="job-description">
-                            As a Full Stack Developer at TopLine, I contributed to the architecture, development, and
-                            deployment of multiple enterprise projects, including a sophisticated real-time auction
-                            platform.
+                            Led end‑to‑end development of high‑traffic web applications. Built scalable backend systems
+                            and secure database structures.
                         </p>
                         <ul class="achievements">
-                            <li>Led end-to-end software development lifecycle for complex web applications</li>
-                            <li>Engineered responsive, interactive user interfaces utilizing modern JavaScript, HTML5,
-                                and CSS3</li>
-                            <li>Developed scalable, high-performance applications leveraging Laravel framework</li>
-                            <li>Integrated payment gateway APIs and implemented real-time notification systems</li>
-                            <li>Architected live bidding mechanisms and auction management systems for high-traffic
-                                environments</li>
-                            <li>Collaborated with cross-functional teams and provided technical mentorship to junior
-                                developers</li>
+                            <li>Integrated payment gateways, real‑time notifications, and external APIs</li>
+                            <li>Mentored junior developers and collaborated with cross‑functional teams</li>
                         </ul>
                         <div class="tech-stack">
                             <span>Laravel</span>
@@ -2958,7 +3568,7 @@
                             <div class="company-logo">UP</div>
                             <div>
                                 <h3 class="company-name">Uplift Plus</h3>
-                                <div class="job-title">Laravel Backend Developer</div>
+                                <div class="job-title">Backend Developer</div>
                                 <div class="job-meta">
                                     <span><i class="fas fa-briefcase"></i> Full-time</span>
                                     <span><i class="fas fa-calendar"></i> 2020 - 2021 · 1 yr</span>
@@ -2967,17 +3577,11 @@
                             </div>
                         </div>
                         <p class="job-description">
-                            As a Laravel Backend Developer at UpLift, I specialized in developing and maintaining
-                            innovative web applications while translating complex client requirements into efficient,
-                            scalable technical solutions.
+                            Developed RESTful APIs using Laravel and Lumen. Built backend systems for e‑commerce, event
+                            planning, and e‑learning platforms.
                         </p>
                         <ul class="achievements">
-                            <li>Developed and maintained enterprise-grade web applications</li>
-                            <li>Architected comprehensive API ecosystems to support multi-application integration</li>
-                            <li>Optimized database performance through query tuning and indexing strategies</li>
-                            <li>Designed clean, maintainable software architectures following SOLID principles</li>
-                            <li>Resolved complex technical issues through systematic debugging and analysis</li>
-                            <li>Collaborated with multidisciplinary teams to deliver integrated solutions</li>
+                            <li>Improved system performance and database reliability</li>
                         </ul>
                         <div class="tech-stack">
                             <span>Laravel</span>
@@ -3033,12 +3637,132 @@
         </div>
     </section>
 
+    <!-- Education Section -->
+    <section class="education-section" id="education">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Academic Background</span>
+                <h2 class="section-title">Education</h2>
+                <p class="section-description">
+                    My educational journey and academic achievements
+                </p>
+            </div>
+
+            <div class="education-card" style="max-width: 600px; margin: 0 auto;">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="education-degree">Bachelor's Degree in Computer Science</div>
+                <div class="education-university">Mansoura University</div>
+                <div class="education-year">
+                    <i class="fas fa-calendar"></i> Graduated
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics-section" id="statistics">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">By The Numbers</span>
+                <h2 class="section-title">Key <span class="gradient-text">Achievements</span></h2>
+                <p class="section-description">
+                    A snapshot of my professional journey and accomplishments
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-number counter" data-target="5">0</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number counter" data-target="50">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="stat-number counter" data-target="5">0</div>
+                    <div class="stat-label">Companies Worked With</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number counter" data-target="1000">0</div>
+                    <div class="stat-label">Users Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section" id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Professional Credentials</span>
+                <h2 class="section-title">Certifications & <span class="gradient-text">Credentials</span></h2>
+                <p class="section-description">
+                    Professional certifications and continuous learning achievements
+                </p>
+            </div>
+
+            <div class="certifications-grid">
+                <!-- You can add certifications here when available -->
+                <div class="certification-card">
+                    <div class="certification-badge">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="certification-name">Laravel Framework</div>
+                    <div class="certification-issuer">Expert Level</div>
+                    <div class="certification-date">
+                        <i class="fas fa-calendar"></i> Ongoing
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-badge">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="certification-name">PHP Development</div>
+                    <div class="certification-issuer">Advanced Level</div>
+                    <div class="certification-date">
+                        <i class="fas fa-calendar"></i> Ongoing
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-badge">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="certification-name">Database Design</div>
+                    <div class="certification-issuer">MySQL & PostgreSQL</div>
+                    <div class="certification-date">
+                        <i class="fas fa-calendar"></i> Ongoing
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Recommendations/Testimonials Section -->
     <section class="testimonials-section" id="recommendations">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">What People <span class="gradient-text">Say</span></h2>
+                <h2 class="section-title">Professional <span class="gradient-text">Recommendations</span></h2>
                 <p class="section-description">
                     Feedback from colleagues and team members I've worked with
                 </p>
@@ -3760,6 +4484,29 @@
         </div>
     </section>
 
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Build Something Amazing?</h2>
+                <p class="cta-description">
+                    Let's collaborate to bring your ideas to life. Whether you need a scalable backend system,
+                    API development, or database optimization, I'm here to help you achieve your goals.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-cta-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Get In Touch
+                    </a>
+                    <a href="https://www.linkedin.com/in/ahmed-fayed2018/" target="_blank" class="btn-cta-secondary">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="container">
@@ -4076,11 +4823,15 @@
         const dots = document.querySelectorAll('.slider-dot');
 
         function updateSlider() {
-            testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            if (testimonialTrack && testimonialCards.length > 0) {
+                const cardWidth = testimonialCards[0].offsetWidth;
+                const offset = currentSlide * cardWidth;
+                testimonialTrack.style.transform = `translateX(-${offset}px)`;
 
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
         }
 
         function goToSlide(index) {
@@ -4101,6 +4852,18 @@
         if (prevBtn && nextBtn) {
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
+
+            // Update slider on window resize
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    updateSlider();
+                }, 250);
+            });
+
+            // Initialize slider
+            updateSlider();
 
             // Auto-play slider
             setInterval(nextSlide, 5000);
